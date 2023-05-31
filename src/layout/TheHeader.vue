@@ -1,10 +1,10 @@
 <template>
   <header class="header">
-    <a href="#" class="header__logo-wrapper">
-      <img src="@/assets/img/brand-logos/adidas.png" alt="Website Logo" class="header__logo" />
-    </a>
-    <Nav />
-    <Menu />
+    <router-link :to="{ name: 'home' }" class="header__logo-wrapper">
+      <img src="@/assets/img/brand-logos/adidas.png" alt="Website Logo" class="header__logo"/>
+    </router-link>
+    <Nav/>
+    <Menu/>
   </header>
 </template>
 

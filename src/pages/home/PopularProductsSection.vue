@@ -3,9 +3,9 @@
     <h2 class="heading-secondary">Популярное</h2>
     <div class="products">
       <figure class="product">
-        <a href="#" class="product__img-wrapper">
-          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1" />
-        </a>
+        <router-link to="/" class="product__img-wrapper">
+          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1"/>
+        </router-link>
         <div class="flex justify-between">
           <div>
             <p class="product__name">Air Jordan 11 CMFT Low</p>
@@ -15,9 +15,9 @@
       </figure>
 
       <figure class="product">
-        <a href="#" class="product__img-wrapper">
-          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1" />
-        </a>
+        <router-link to="/" class="product__img-wrapper">
+          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1"/>
+        </router-link>
         <div class="flex justify-between">
           <div>
             <p class="product__name">Air Jordan 11 CMFT Low</p>
@@ -27,9 +27,9 @@
       </figure>
 
       <figure class="product">
-        <a href="#" class="product__img-wrapper">
-          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1" />
-        </a>
+        <router-link to="/" class="product__img-wrapper">
+          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1"/>
+        </router-link>
         <div class="flex justify-between">
           <div>
             <p class="product__name">Air Jordan 11 CMFT Low</p>

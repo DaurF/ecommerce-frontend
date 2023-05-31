@@ -1,19 +1,29 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import Home from '@/pages/home/Home.vue'
-const Catalog = () => import('@/pages/catalog/Catalog.vue')
+import Catalog from "@/pages/catalog/Catalog.vue";
+import NotFound from "@/pages/NotFound.vue";
 
-export default createRouter({
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/catalog',
+    name: 'catalog',
+    component: Catalog
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  }
+]
+
+const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/catalog',
-      name: 'Catalog',
-      component: Catalog
-    }
-  ]
+  routes
 })
+
+export default router;

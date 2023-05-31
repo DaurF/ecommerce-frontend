@@ -5,7 +5,7 @@
       <div class="offer__text-content">
         <span class="uppercase text-slate-500 text-sm tracking-widest mb-1">Limited offer</span>
         <h3 class="offer__title mb-8">35% off only this friday and get special gift</h3>
-        <BaseButtonCTA label="Grab it now" />
+        <BaseButtonCTA :to="{ name: 'home' }" label="Grab it now" />
       </div>
     </div>
 

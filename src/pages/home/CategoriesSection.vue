@@ -5,23 +5,23 @@
     <!-- TODO extract to distinct components -->
     <div class="categories">
       <article class="category">
-        <img src="@/assets/img/categories/best-seller.jpg" alt="Category Best Seller" />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Best Seller" icon-pos="right" />
+        <img src="@/assets/img/categories/computers.jpg" alt="Категория - 'компьютеры'"/>
+        <Button class="btn-cta" icon="pi pi-arrow-right" label="Комьютеры" icon-pos="right"/>
       </article>
 
       <article class="category">
-        <img src="@/assets/img/categories/best-seller.jpg" alt="Category Best Seller" />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Best Seller" icon-pos="right" />
+        <img src="@/assets/img/categories/peripherals.jpg" alt="Категория - 'периферийные устройства'"/>
+        <Button class="btn-cta" icon="pi pi-arrow-right" label="Периферия" icon-pos="right"/>
       </article>
 
       <article class="category">
-        <img src="@/assets/img/categories/best-seller.jpg" alt="Category Best Seller" />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Best Seller" icon-pos="right" />
+        <img src="@/assets/img/categories/phone.jpg" alt="Категория - 'смартфоны'"/>
+        <Button class="btn-cta" icon="pi pi-arrow-right" label="Смартфоны" icon-pos="right"/>
       </article>
 
       <article class="category">
-        <img src="@/assets/img/categories/best-seller.jpg" alt="Category Best Seller" />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Best Seller" icon-pos="right" />
+        <img src="@/assets/img/categories/laptop.jpg" alt="Категория - 'ноутбуки'"/>
+        <Button class="btn-cta" icon="pi pi-arrow-right" label="Ноутбуки" icon-pos="right"/>
       </article>
     </div>
   </section>
@@ -42,6 +42,11 @@ import Button from 'primevue/button'
   position: relative;
   overflow: hidden;
   border-radius: 9px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 
   &:hover {
     img {

@@ -2,10 +2,10 @@
 
 <template>
   <div class="container mx-auto 2xl:px-20">
-    <TheHeader class="mb-8" />
-    <router-view />
+    <TheHeader class="mb-8"/>
+    <router-view/>
   </div>
-  <TheFooter />
+  <TheFooter/>
 </template>
 
 <script setup lang="ts">

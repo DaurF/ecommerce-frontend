@@ -2,8 +2,10 @@
   <section class="section-hero">
     <HeroCarousel>
       <div class="hero__text-box">
-        <h1 class="heading-primary">Поднимите свой стиль с нашими летними коллекциями</h1>
-        <BaseButtonCTA link="" label="Начать покупки" class="mb-12" />
+        <h1 class="heading-primary">Погрузитесь в мир электронных возможностей</h1>
+        <router-link :to="{ name: 'catalog' }" class="btn-cta mb-12">
+          Начать покупки
+        </router-link>
         <div class="hero__paginator">
           <div class=""></div>
           <div class="hero__paginator-dot hero__paginator-dot--active"></div>
@@ -52,7 +54,13 @@ import BaseButtonCTA from '@/components/BaseButtonCTA.vue'
   }
 }
 
-.btn--outlined {
-  background-color: white !important;
+.btn-cta {
+  display: inline-block;
+  background-color: #fff;
+  color: #475569;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
 }
 </style>

@@ -1,12 +1,7 @@
 <template>
-  <div class="flex justify-content-center">
-    <Breadcrumb class="breadcrumb" :home="home" :model="items" />
-  </div>
-  <div class="flex">
-    <aside>
-      <Filter />
-    </aside>
-    <main></main>
+  <div class="mb-20">
+    <Breadcrumb class="breadcrumb mb-4" :home="home" :model="items"/>
+    <CatalogSection/>
   </div>
 </template>
 
@@ -17,12 +12,14 @@
 </style>
 
 <script setup lang="ts">
+import {ref} from 'vue'
 import Breadcrumb from 'primevue/breadcrumb'
-import { ref } from 'vue'
+import CatalogSection from "./CatalogSection.vue";
 
 const home = ref({
   icon: 'pi pi-home',
-  to: '/'
-})
-const items = ref([{ label: 'Browse Products', to: '/catalog' }])
+  to: {name: 'home'},
+});
+
+const items = ref([{label: 'Browse Products', to: '/catalog'}])
 </script>
