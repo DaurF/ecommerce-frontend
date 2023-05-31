@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.p-button {
+  background-color: #1e293b !important;
+  color: #fff !important;
+  font-family: Inter !important;
+  font-weight: 400 !important;
+}
