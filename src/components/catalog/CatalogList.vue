@@ -1,41 +1,57 @@
 <template>
-  <div class="catalog__list">
+  <ul class="catalog__list">
+    <li v-for="product in products" :key="product._id">
+      <router-link to="/">
+        <article class="catalog__item">
+          <img
+            class="mb-2"
+            :src="product.imageCover"
+            alt="">
+          <div class="flex justify-between">
+            <h6 class="product-title">{{ product.name }}</h6>
+            <span class="product-price">${{ product.price }}</span>
+          </div>
+        </article>
+      </router-link>
 
-  </div>
+    </li>
+  </ul>
 </template>
 
-<script setup lang="ts">
-
-interface Product {
-  ratingsAverage: number;
-  ratingsQuantity: number;
-  images: string[];
-  _id: string;
-  name: string;
-  price: number;
-  imageCover: string;
-}
-
-const products = [
-  {
-    ratingsAverage: 4.5,
-    ratingsQuantity: 1,
-    images: [
-      'product-1-1',
-      'product-1-2',
-      'product-1-3'
-    ],
-    _id: '1',
-    name: ''
-  }
-] as Product[]
-
-</script>
 
 <style lang="scss" scoped>
-.catalog__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.catalog {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  &__item {
+    img {
+      height: 18rem;
+      object-fit: cover;
+      border-radius: 7px;
+    }
+  }
+}
+
+.product {
+  &-title {
+    font-size: 0.9rem;
+  }
+
+  &-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
 }
 </style>
+
+<script setup lang="ts">
+import {Product} from '@/stores/catalogStore'
+
+const props = defineProps<{
+  products: Product[]
+}>();
+</script>

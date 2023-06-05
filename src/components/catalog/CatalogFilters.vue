@@ -65,7 +65,9 @@ const price = ref({
   max: null
 })
 
-const selectedCategories = ref(['computers'])
+const selectedCategories = ref([
+  // 'computers'
+])
 </script>
 
 <style scoped lang="scss">
