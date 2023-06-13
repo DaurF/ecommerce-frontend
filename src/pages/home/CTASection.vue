@@ -3,29 +3,31 @@
     <div class="offer mb-20">
       <img src="@/assets/img/limited-offer.jpg" alt="Limited Offer picture" />
       <div class="offer__text-content">
-        <span class="uppercase text-slate-500 text-sm tracking-widest mb-1">Limited offer</span>
-        <h3 class="offer__title mb-8">35% off only this friday and get special gift</h3>
-        <BaseButtonCTA :to="{ name: 'home' }" label="Grab it now" />
+        <span class="uppercase text-slate-500 text-sm tracking-widest mb-1"
+          >ОГРАНИЧЕННОЕ ПРЕДЛОЖЕНИЕ</span
+        >
+        <h3 class="offer__title mb-8">Скидка 35% только в эту пятницу и получи подарок</h3>
+        <BaseButtonCTA :to="{ name: 'home' }" label="Получить" />
       </div>
     </div>
 
     <div class="subscription">
       <h3 class="subscription__title mb-3">
-        Subscribe to our newsletter to get updates to our latest collections
+        Подпишитесь на нашу рассылку, чтобы получать обновления наших последних коллекций
       </h3>
       <p class="subscription__sub mb-7">
-        Get 20% off on your first order just by subscribing to our newsletter
+        Получите скидку 20% на первый заказ, просто подписавшись на нашу рассылку
       </p>
 
       <div class="flex gap-2 mb-4">
         <span class="p-input-icon-left">
           <i class="pi pi-inbox" />
-          <InputText placeholder="Enter your email" />
+          <InputText placeholder="Введите вашу почту" />
         </span>
-        <BaseButton label="Subscribe" />
+        <BaseButton label="Подписаться" />
       </div>
 
-      <span class="text-[0.8rem] text-slate-500">You will be able to unsubscribe at any time.</span>
+      <span class="text-[0.8rem] text-slate-500">Вы можете отписаться в любое время.</span>
     </div>
   </section>
 </template>

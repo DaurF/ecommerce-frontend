@@ -1,23 +1,18 @@
 <template>
   <ul class="catalog__list">
     <li v-for="product in products" :key="product._id">
-      <router-link to="/">
+      <router-link :to="{ name: 'product', params: { id: '123' } }">
         <article class="catalog__item">
-          <img
-            class="mb-2"
-            :src="product.imageCover"
-            alt="">
+          <img crossorigin="anonymous" class="mb-2" :src="product.imageCover" alt="" />
           <div class="flex justify-between">
             <h6 class="product-title">{{ product.name }}</h6>
             <span class="product-price">${{ product.price }}</span>
           </div>
         </article>
       </router-link>
-
     </li>
   </ul>
 </template>
-
 
 <style lang="scss" scoped>
 .catalog {
@@ -49,9 +44,14 @@
 </style>
 
 <script setup lang="ts">
-import {Product} from '@/stores/catalogStore'
+import { type Product } from '@/stores/catalogStore'
+import { onMounted } from 'vue'
 
 const props = defineProps<{
   products: Product[]
-}>();
+}>()
+
+onMounted(() => {
+  console.log(props.products)
+})
 </script>

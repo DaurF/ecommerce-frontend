@@ -4,9 +4,9 @@
     <a href="#" class="menu__btn">
       <ShoppingCart />
     </a>
-    <a href="#" class="menu__btn">
+    <router-link to="/auth" class="menu__btn">
       <User />
-    </a>
+    </router-link>
   </div>
 </template>
 
