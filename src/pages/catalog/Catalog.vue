@@ -1,7 +1,7 @@
 <template>
   <div class="mb-20">
-    <Breadcrumb class="breadcrumb mb-4" :home="home" :model="items"/>
-    <CatalogSection/>
+    <Breadcrumb class="breadcrumb mb-4" :home="home" :model="items" />
+    <CatalogSection />
   </div>
 </template>
 
@@ -12,14 +12,23 @@
 </style>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 import Breadcrumb from 'primevue/breadcrumb'
-import CatalogSection from "./CatalogSection.vue";
+import CatalogSection from './CatalogSection.vue'
+// import { useCatalogStore } from '@/stores/catalogStore'
+
+// const props = defineProps({
+//   category: String
+// })
+
+// if (props.category) {
+//   useCatalogStore().categoryFilters.push(props.category)
+// }
 
 const home = ref({
   icon: 'pi pi-home',
-  to: {name: 'home'},
-});
+  to: { name: 'home' }
+})
 
-const items = ref([{label: 'Browse Products', to: '/catalog'}])
+const items = ref([{ label: 'Browse Products', to: '/catalog' }])
 </script>

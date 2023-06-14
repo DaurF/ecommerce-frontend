@@ -1,11 +1,11 @@
 <template>
   <ul class="catalog__list">
     <li v-for="product in products" :key="product._id">
-      <router-link :to="{ name: 'product', params: { id: '123' } }">
+      <router-link :to="{ name: 'product', params: { id: product._id } }">
         <article class="catalog__item">
           <img crossorigin="anonymous" class="mb-2" :src="product.imageCover" alt="" />
           <div class="flex justify-between">
-            <h6 class="product-title">{{ product.name }}</h6>
+            <h6 class="product-title">{{ `${product.manufacturer} ${product.model}` }}</h6>
             <span class="product-price">${{ product.price }}</span>
           </div>
         </article>

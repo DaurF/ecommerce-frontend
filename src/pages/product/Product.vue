@@ -20,7 +20,10 @@ const props = defineProps({
 })
 
 const res = await client.get(`/products/${props.id}`)
-const product = ref(res.data.data.product)
+const product = ref({
+  ...res.data.data.product,
+  imageCover: `http://127.0.0.1:8000/img/${res.data.data.product.imageCover}.jpg`
+})
 console.log(product.value.imageCover)
 
 const home = ref({

@@ -11,7 +11,11 @@
 
         <ul v-if="show.categories" class="categories">
           <li v-for="category in categories" :key="category.key" class="flex gap-3">
-            <Checkbox v-model="selectedCategories" :input-id="category.key" :value="category.name"/>
+            <Checkbox
+              v-model="selectedCategories"
+              :input-id="category.key"
+              :value="category.name"
+            />
             <label :for="category.key">{{ category.label }}</label>
           </li>
         </ul>
@@ -27,26 +31,27 @@
         <template v-if="show.price">
           <div class="p-inputgroup flex-1 mb-4">
             <span class="p-inputgroup-addon">$</span>
-            <InputNumber v-model="price.min" placeholder="Минимум"/>
+            <InputNumber v-model="price.min" placeholder="Минимум" />
           </div>
 
           <div class="p-inputgroup flex-1">
             <span class="p-inputgroup-addon">$</span>
-            <InputNumber v-model="price.max" placeholder="Максимум"/>
+            <InputNumber v-model="price.max" placeholder="Максимум" />
           </div>
         </template>
-
       </li>
     </ul>
   </div>
 </template>
 
-
 <script setup lang="ts">
-import {reactive, ref} from "vue";
+import { reactive, ref } from 'vue'
 import Checkbox from 'primevue/checkbox'
 import InputNumber from 'primevue/inputnumber'
 
+const props = defineProps({
+  category: String
+})
 
 const show = reactive({
   categories: true,
@@ -54,10 +59,10 @@ const show = reactive({
 })
 
 const categories = ref([
-  {name: 'computers', label: 'Компьютеры', key: 'COMPUTERS'},
-  {name: 'peripherals', label: 'Периферия', key: 'PERIPHERALS'},
-  {name: 'smartphones', label: 'Смартфоны', key: 'SMARTPHONES'},
-  {name: 'laptops', label: 'Ноутбуки', key: 'LAPTOPS'},
+  { name: 'computers', label: 'Компьютеры', key: 'COMPUTERS' },
+  { name: 'peripherals', label: 'Периферия', key: 'PERIPHERALS' },
+  { name: 'smartphones', label: 'Смартфоны', key: 'SMARTPHONES' },
+  { name: 'laptops', label: 'Ноутбуки', key: 'LAPTOPS' }
 ])
 
 const price = ref({
@@ -65,9 +70,7 @@ const price = ref({
   max: null
 })
 
-const selectedCategories = ref([
-  // 'computers'
-])
+const selectedCategories = ref([props.category])
 </script>
 
 <style scoped lang="scss">
@@ -89,9 +92,7 @@ h6 {
   &__list {
     & > li {
       padding: 1rem 0;
-
     }
-
 
     button {
       width: 100%;
@@ -114,7 +115,4 @@ h6 {
   row-gap: 0.5rem;
   @apply text-gray-500;
 }
-
-
 </style>
-

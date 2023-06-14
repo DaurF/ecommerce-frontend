@@ -1,9 +1,9 @@
 <template>
   <div class="menu">
     <SearchBar />
-    <a href="#" class="menu__btn">
+    <router-link to="/cart" class="menu__btn">
       <ShoppingCart />
-    </a>
+    </router-link>
     <router-link to="/auth" class="menu__btn">
       <User />
     </router-link>

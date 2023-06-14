@@ -6,6 +6,7 @@ import NotFound from '@/pages/NotFound.vue'
 import Login from '@/components/auth/Login.vue'
 import Signup from '@/components/auth/Signup.vue'
 import Product from '@/pages/product/Product.vue'
+import Cart from '@/pages/Cart.vue'
 
 const routes = [
   {
@@ -33,7 +34,8 @@ const routes = [
   {
     path: '/catalog',
     name: 'catalog',
-    component: Catalog
+    component: Catalog,
+    params: true
   },
   {
     path: '/products/:id',
@@ -45,6 +47,11 @@ const routes = [
     path: '/:pathMatch(.*)*',
     name: 'notfound',
     component: NotFound
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart
   }
 ]
 
