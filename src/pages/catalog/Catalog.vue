@@ -12,18 +12,10 @@
 </style>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 import Breadcrumb from 'primevue/breadcrumb'
 import CatalogSection from './CatalogSection.vue'
-// import { useCatalogStore } from '@/stores/catalogStore'
-
-// const props = defineProps({
-//   category: String
-// })
-
-// if (props.category) {
-//   useCatalogStore().categoryFilters.push(props.category)
-// }
+import { useCatalogStore } from '@/stores/catalogStore'
 
 const home = ref({
   icon: 'pi pi-home',
@@ -31,4 +23,8 @@ const home = ref({
 })
 
 const items = ref([{ label: 'Browse Products', to: '/catalog' }])
+
+onBeforeUnmount(() => {
+  useCatalogStore().clearFilters()
+})
 </script>

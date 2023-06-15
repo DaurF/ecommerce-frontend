@@ -17,16 +17,32 @@ interface Product {
 const useCatalogStore = defineStore('CatalogStore', {
   state: () => ({
     products: [] as Product[],
-    categoryFilters: [] as string[]
+    filters: [] as string[],
+    minPrice: 0 as number | null,
+    maxPrice: 999999 as number | null
   }),
   getters: {
-    prods: (state) => state.products
+    allProducts: (state) => state.products,
+    allFilters: (state) => state.filters,
+    gMinPrice: (state) => state.minPrice,
+    gMaxPrice: (state) => state.maxPrice
   },
   actions: {
     setProducts(products: Product[]) {
       products.forEach((p) => (p.imageCover = `http://127.0.0.1:8000/img/${p.imageCover}.jpg`))
-      console.log(products)
       this.products = products
+    },
+    setFilters(filters: string[]) {
+      this.filters = filters
+    },
+    setMinPrice(price: number | null) {
+      this.minPrice = price
+    },
+    setMaxPrice(price: number | null) {
+      this.maxPrice = price
+    },
+    clearFilters() {
+      this.filters = []
     }
   }
 })

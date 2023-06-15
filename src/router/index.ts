@@ -18,6 +18,7 @@ const routes = [
     path: '/auth',
     name: 'auth',
     component: Auth,
+    meta: { requiresUnauth: true },
     children: [
       {
         path: '',
@@ -58,6 +59,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from) => {
+  if (to.meta.requiresUnauth && localStorage.getItem('token') && localStorage.getItem('userRole')) {
+    return {
+      name: 'home'
+    }
+  }
 })
 
 export default router

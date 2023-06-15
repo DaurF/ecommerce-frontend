@@ -31,12 +31,12 @@
         <template v-if="show.price">
           <div class="p-inputgroup flex-1 mb-4">
             <span class="p-inputgroup-addon">$</span>
-            <InputNumber v-model="price.min" placeholder="Минимум" />
+            <InputNumber v-model.number="minPrice" placeholder="Минимум" />
           </div>
 
           <div class="p-inputgroup flex-1">
             <span class="p-inputgroup-addon">$</span>
-            <InputNumber v-model="price.max" placeholder="Максимум" />
+            <InputNumber v-model.number="maxPrice" placeholder="Максимум" />
           </div>
         </template>
       </li>
@@ -45,32 +45,43 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import Checkbox from 'primevue/checkbox'
 import InputNumber from 'primevue/inputnumber'
-
-const props = defineProps({
-  category: String
-})
+import { useCatalogStore } from '@/stores/catalogStore'
+import { getAllProducts } from '@/services/catalog'
 
 const show = reactive({
   categories: true,
   price: true
 })
 
+const catalogStore = useCatalogStore()
 const categories = ref([
-  { name: 'computers', label: 'Компьютеры', key: 'COMPUTERS' },
-  { name: 'peripherals', label: 'Периферия', key: 'PERIPHERALS' },
-  { name: 'smartphones', label: 'Смартфоны', key: 'SMARTPHONES' },
-  { name: 'laptops', label: 'Ноутбуки', key: 'LAPTOPS' }
+  { name: 'computer', label: 'Компьютеры', key: 'COMPUTERS' },
+  { name: 'peripheral', label: 'Периферия', key: 'PERIPHERALS' },
+  { name: 'phone', label: 'Смартфоны', key: 'SMARTPHONES' },
+  { name: 'laptop', label: 'Ноутбуки', key: 'LAPTOPS' }
 ])
 
-const price = ref({
-  min: null,
-  max: null
+const minPrice = ref(null)
+const maxPrice = ref(null)
+const selectedCategories = ref<string[]>(catalogStore.allFilters)
+
+watch(selectedCategories, async (newFilters: string[]) => {
+  catalogStore.setFilters(newFilters)
+  await getAllProducts()
 })
 
-const selectedCategories = ref([props.category])
+watch(minPrice, async (newPrice: number | null) => {
+  catalogStore.setMinPrice(newPrice)
+  await getAllProducts()
+})
+
+watch(maxPrice, async (newPrice: number | null) => {
+  catalogStore.setMaxPrice(newPrice)
+  await getAllProducts()
+})
 </script>
 
 <style scoped lang="scss">

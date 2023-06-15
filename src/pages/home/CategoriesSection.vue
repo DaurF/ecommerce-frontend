@@ -5,10 +5,14 @@
     <!-- TODO extract to distinct components -->
     <div class="categories">
       <article class="category">
-        <router-link :to="{ name: 'catalog', params: { category: 'computer' } }">
-          <img src="@/assets/img/categories/computers.jpg" alt="Категория - 'компьютеры'" />
-          <Button class="btn-cta" icon="pi pi-arrow-right" label="Комьютеры" icon-pos="right" />
-        </router-link>
+        <img src="@/assets/img/categories/computers.jpg" alt="Категория - 'компьютеры'" />
+        <Button
+          @click="onNavigateCategory('computer')"
+          class="btn-cta"
+          icon="pi pi-arrow-right"
+          label="Комьютеры"
+          icon-pos="right"
+        />
       </article>
 
       <article class="category">
@@ -16,17 +20,35 @@
           src="@/assets/img/categories/peripherals.jpg"
           alt="Категория - 'периферийные устройства'"
         />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Периферия" icon-pos="right" />
+        <Button
+          @click="onNavigateCategory('peripheral')"
+          class="btn-cta"
+          icon="pi pi-arrow-right"
+          label="Периферия"
+          icon-pos="right"
+        />
       </article>
 
       <article class="category">
         <img src="@/assets/img/categories/phone.jpg" alt="Категория - 'смартфоны'" />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Смартфоны" icon-pos="right" />
+        <Button
+          @click="onNavigateCategory('phone')"
+          class="btn-cta"
+          icon="pi pi-arrow-right"
+          label="Смартфоны"
+          icon-pos="right"
+        />
       </article>
 
       <article class="category">
         <img src="@/assets/img/categories/laptop.jpg" alt="Категория - 'ноутбуки'" />
-        <Button class="btn-cta" icon="pi pi-arrow-right" label="Ноутбуки" icon-pos="right" />
+        <Button
+          @click="onNavigateCategory('laptop')"
+          class="btn-cta"
+          icon="pi pi-arrow-right"
+          label="Ноутбуки"
+          icon-pos="right"
+        />
       </article>
     </div>
   </section>
@@ -34,6 +56,16 @@
 
 <script setup lang="ts">
 import Button from 'primevue/button'
+import { useRouter } from 'vue-router'
+import { useCatalogStore } from '@/stores/catalogStore'
+
+const catalogStore = useCatalogStore()
+const router = useRouter()
+
+function onNavigateCategory(category: string) {
+  catalogStore.allFilters.push(category)
+  router.push({ name: 'catalog' })
+}
 </script>
 
 <style scoped lang="scss">

@@ -2,17 +2,47 @@
   <ul class="catalog__list">
     <li v-for="product in products" :key="product._id">
       <router-link :to="{ name: 'product', params: { id: product._id } }">
-        <article class="catalog__item">
-          <img crossorigin="anonymous" class="mb-2" :src="product.imageCover" alt="" />
-          <div class="flex justify-between">
-            <h6 class="product-title">{{ `${product.manufacturer} ${product.model}` }}</h6>
+        <Card>
+          <template #header>
+            <img
+              crossorigin="anonymous"
+              class="mb-2"
+              :src="product.imageCover"
+              :alt="product.model"
+            />
+          </template>
+          <template #title>
+            {{ `${product.manufacturer} ${product.model}` }}
+          </template>
+          <template #content>
             <span class="product-price">${{ product.price }}</span>
-          </div>
-        </article>
+          </template>
+
+          <!-- <article class="catalog__item">
+              <div class="flex justify-between">
+                <h6 class="product-title"></h6>
+                <span class="product-price">${{ product.price }}</span>
+              </div>
+            </article> -->
+        </Card>
       </router-link>
     </li>
   </ul>
 </template>
+
+<script setup lang="ts">
+import { type Product } from '@/stores/catalogStore'
+import { onMounted } from 'vue'
+import Card from 'primevue/card'
+
+const props = defineProps<{
+  products: Product[]
+}>()
+
+onMounted(() => {
+  console.log(props.products)
+})
+</script>
 
 <style lang="scss" scoped>
 .catalog {
@@ -42,16 +72,3 @@
   }
 }
 </style>
-
-<script setup lang="ts">
-import { type Product } from '@/stores/catalogStore'
-import { onMounted } from 'vue'
-
-const props = defineProps<{
-  products: Product[]
-}>()
-
-onMounted(() => {
-  console.log(props.products)
-})
-</script>

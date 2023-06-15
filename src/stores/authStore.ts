@@ -1,29 +1,36 @@
 import { defineStore } from 'pinia'
-import client from '@/services/httpClient'
 
 const useAuthStore = defineStore('user', {
   state: () => ({
-    user: null
+    credentials: {
+      token: localStorage.getItem('token') || '',
+      userRole: localStorage.getItem('userRole') || ''
+    }
   }),
-
+  getters: {
+    isLoggedIn: (state) => state.credentials.token && state.credentials.userRole
+  },
   actions: {
-    async signIn(email: string, password: string) {
-      const res = await client.post('/users/login', {
-        email,
-        password
-      })
-      console.log(res)
+    setUserTokenData({ email, name, role }: { email: string; name: string; role: string }) {
+      this.credentials.token
     },
-    async signUp(email: string, password: string) {
-      const res = await fetch('https://localhost:3000/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      })
-      const user = await res.json()
-      this.user = user
+    setToken(token: string) {
+      this.credentials.token = token
+      localStorage.setItem('token', token)
+    },
+    setUserRole(role: string) {
+      this.credentials.userRole = role
+      localStorage.setItem('userRole', role)
+    },
+    deleteToken() {
+      this.credentials.token = ''
+      localStorage.removeItem('token')
+    },
+    deleteUserRole() {
+      this.credentials.userRole = ''
+      localStorage.removeItem('userRole')
     }
   }
 })
+
+export { useAuthStore }
