@@ -11,9 +11,6 @@ const useAuthStore = defineStore('user', {
     isLoggedIn: (state) => state.credentials.token && state.credentials.userRole
   },
   actions: {
-    setUserTokenData({ email, name, role }: { email: string; name: string; role: string }) {
-      this.credentials.token
-    },
     setToken(token: string) {
       this.credentials.token = token
       localStorage.setItem('token', token)

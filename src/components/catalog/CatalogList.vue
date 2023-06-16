@@ -2,20 +2,20 @@
   <ul class="catalog__list">
     <li v-for="product in products" :key="product._id">
       <router-link :to="{ name: 'product', params: { id: product._id } }">
-        <Card>
+        <Card class="max-h-96">
           <template #header>
             <img
               crossorigin="anonymous"
-              class="mb-2"
+              class="h-44 object-cover mx-auto"
               :src="product.imageCover"
               :alt="product.model"
             />
           </template>
           <template #title>
-            {{ `${product.manufacturer} ${product.model}` }}
+            <span class="text-xl truncate">{{ `${product.manufacturer} ${product.model}` }}</span>
           </template>
           <template #content>
-            <span class="product-price">${{ product.price }}</span>
+            <span class="product-price">{{ product.price }} &#8376;</span>
           </template>
 
           <!-- <article class="catalog__item">

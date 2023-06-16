@@ -19,7 +19,7 @@ const useCatalogStore = defineStore('CatalogStore', {
     products: [] as Product[],
     filters: [] as string[],
     minPrice: 0 as number | null,
-    maxPrice: 999999 as number | null
+    maxPrice: Number.MAX_SAFE_INTEGER as number | null
   }),
   getters: {
     allProducts: (state) => state.products,
@@ -29,6 +29,8 @@ const useCatalogStore = defineStore('CatalogStore', {
   },
   actions: {
     setProducts(products: Product[]) {
+      console.log(products)
+
       products.forEach((p) => (p.imageCover = `http://127.0.0.1:8000/img/${p.imageCover}.jpg`))
       this.products = products
     },

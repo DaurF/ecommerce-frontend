@@ -21,7 +21,7 @@ const getAllProducts = async () => {
     }
 
     const { data } = await client.get('/products', { params })
-    catalogStore.setProducts(data.data.products)
+    catalogStore.setProducts(data.data.data)
   } catch (err) {
     console.error(err)
   }

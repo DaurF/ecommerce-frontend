@@ -1,14 +1,14 @@
 <template>
   <div>
     <Breadcrumb class="breadcrumb mb-4" :home="home" :model="items" />
-    <div class="grid grid-cols-2 gap-4 my-8">
+    <div class="grid grid-cols-2 gap-4 my-24">
       <img
         crossorigin="anonymous"
-        class="mb-2 border p-4 max-h-96"
+        class="mb-2 border p-4 max-h-96 justify-self-center max-w-xl"
         :src="product?.imageCover"
         alt=""
       />
-      <div>
+      <div v-if="product">
         <h3 class="text-lg font-extrabold mb-1">
           {{ `${product.manufacturer} ${product.model}` }}
         </h3>
@@ -17,12 +17,18 @@
           <span>{{ `(${product.ratingsAverage})` }}</span>
         </div>
         <h4 class="text-xl font-bold">
-          {{ `$${product.price}` }}
+          {{ `${product.price} &#8376;` }}
         </h4>
         <hr class="block my-4" />
         <p>{{ product.description }}</p>
         <hr class="block my-4" />
-        <BaseButton label="Приобрести" />
+        <BaseButton @click="checkout" v-if="loggedIn" label="Приобрести" />
+        <router-link
+          v-else
+          class="bg-slate-800 text-white px-4 py-2 inline-block rounded-full"
+          :to="{ name: 'login' }"
+          >Войти для покупки</router-link
+        >
       </div>
     </div>
   </div>
@@ -33,6 +39,7 @@ import Breadcrumb from 'primevue/breadcrumb'
 import { ref, onBeforeMount } from 'vue'
 import client from '@/services/httpClient'
 import Rating from 'primevue/rating'
+import { useAuthStore } from '@/stores/authStore'
 
 const props = defineProps({
   id: {
@@ -41,13 +48,23 @@ const props = defineProps({
   }
 })
 
+const authStore = useAuthStore()
+const loggedIn = authStore.isLoggedIn
 const product = ref()
 const rating = ref(undefined)
+
+async function checkout() {
+  const res = await client.get(`/orders/checkout-session/${product.value._id}`)
+  const { url } = res.data.session
+  window.location = url
+}
+
 onBeforeMount(async () => {
   const response = await client.get(`/products/${props.id}`)
+
   product.value = {
-    ...response.data.data.product,
-    imageCover: `http://127.0.0.1:8000/img/${response.data.data.product.imageCover}.jpg`
+    ...response.data.data.data,
+    imageCover: `http://127.0.0.1:8000/img/${response.data.data.data.imageCover}.jpg`
   }
   rating.value = product.value.ratingsAverage
 
