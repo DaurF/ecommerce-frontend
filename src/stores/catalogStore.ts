@@ -45,6 +45,8 @@ const useCatalogStore = defineStore('CatalogStore', {
     },
     clearFilters() {
       this.filters = []
+      this.minPrice = 0;
+      this.maxPrice = Number.MAX_SAFE_INTEGER;
     }
   }
 })
