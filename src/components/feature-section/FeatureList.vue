@@ -1,31 +1,31 @@
 <template>
   <div class="features">
-    <Feature title="Original Products">
+    <Feature title="Оригинальные продукты">
       <template #icon>
         <ShieldCheck />
       </template>
-      We provide money back guarantee if the product are not original
+      Мы предоставляем гарантию возврата денег, если продукты не являются оригинальными
     </Feature>
 
-    <Feature title="Satisfaction Guarantee">
+    <Feature title="Гарантия удовлетворенности">
       <template #icon>
         <FaceSmile />
       </template>
-      Exchange the product you've purchased if it doesn't fit on you
+      Вы можете обменять товар, который вы приобрели, если он не подходит вам по размеру
     </Feature>
 
-    <Feature title="New Arrival Everyday">
+    <Feature title="Ежедневное поступление новых товаров">
       <template #icon>
         <PlusCircle />
       </template>
-      We updates our collections almost everyday
+      Мы обновляем наши коллекции практически каждый день.
     </Feature>
 
-    <Feature title="Fast & Free Shipping">
+    <Feature title="Быстрая и бесплатная доставка">
       <template #icon>
         <Flash />
       </template>
-      We offer fast and free shipping for our loyal customers
+      Мы предлагаем быструю и бесплатную доставку для наших постоянных клиентов.
     </Feature>
   </div>
 </template>

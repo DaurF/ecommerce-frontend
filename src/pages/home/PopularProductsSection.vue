@@ -4,36 +4,36 @@
     <div class="products">
       <figure class="product">
         <router-link to="/" class="product__img-wrapper">
-          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1"/>
+          <img src="@/assets/img/popular-products/popular-product-1.jpg" alt="Popular product 1" />
         </router-link>
         <div class="flex justify-between">
           <div>
-            <p class="product__name">Air Jordan 11 CMFT Low</p>
-            <span class="product__price">105 400&#8376;</span>
+            <p class="product__name">Lenovo Legion T5 26AMR5</p>
+            <span class="product__price">589 990&#8376;</span>
           </div>
         </div>
       </figure>
 
       <figure class="product">
         <router-link to="/" class="product__img-wrapper">
-          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1"/>
+          <img src="@/assets/img/popular-products/popular-product-1.jpg" alt="Popular product 1" />
         </router-link>
         <div class="flex justify-between">
           <div>
-            <p class="product__name">Air Jordan 11 CMFT Low</p>
-            <span class="product__price">105 400&#8376;</span>
+            <p class="product__name">Lenovo Legion T5 26AMR5</p>
+            <span class="product__price">589 990&#8376;</span>
           </div>
         </div>
       </figure>
 
       <figure class="product">
         <router-link to="/" class="product__img-wrapper">
-          <img src="@/assets/img/popular-products/popular-product-1.webp" alt="Popular product 1"/>
+          <img src="@/assets/img/popular-products/popular-product-1.jpg" alt="Popular product 1" />
         </router-link>
         <div class="flex justify-between">
           <div>
-            <p class="product__name">Air Jordan 11 CMFT Low</p>
-            <span class="product__price">105 400&#8376;</span>
+            <p class="product__name">Lenovo Legion T5 26AMR5</p>
+            <span class="product__price">589 990&#8376;</span>
           </div>
         </div>
       </figure>

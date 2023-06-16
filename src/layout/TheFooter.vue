@@ -3,41 +3,40 @@
     <div class="footer__content">
       <div class="grid grid-cols-8 py-10">
         <div class="col col--left">
-          <p>Selling high-quality, stylish clothes</p>
+          <p></p>
         </div>
 
         <div class="col col--shop">
-          <h5 class="col__heading col__heading--shop">Shop</h5>
+          <h5 class="col__heading col__heading--shop">Покупки</h5>
 
           <div class="col__content col__content--shop">
-            <a href="#" class="col__link">All Collections</a>
-            <a href="#" class="col__link">Winter Edition</a>
-            <a href="#" class="col__link">Discount</a>
+            <a href="#" class="col__link">Все категории</a>
+            <a href="#" class="col__link">Скидки</a>
           </div>
         </div>
 
         <div class="col col--company">
-          <h5 class="col__heading col__heading--company">Company</h5>
+          <h5 class="col__heading col__heading--company">Компания</h5>
 
           <div class="col__content col__content--company">
-            <a href="#" class="col__link">About us</a>
-            <a href="#" class="col__link">Contact</a>
-            <a href="#" class="col__link">Affiliates</a>
+            <a href="#" class="col__link">О нас</a>
+            <a href="#" class="col__link">Контакты</a>
+            <a href="#" class="col__link">Партнерская программа</a>
           </div>
         </div>
 
         <div class="col col--support">
-          <h5 class="col__heading col__heading--support">Support</h5>
+          <h5 class="col__heading col__heading--support">Поддержка</h5>
 
           <div class="col__content col__content--support">
             <a href="#" class="col__link">FAQs</a>
-            <a href="#" class="col__link">Cookie Policy</a>
-            <a href="#" class="col__link">Terms of Use</a>
+            <a href="#" class="col__link">Политика Cookie</a>
+            <a href="#" class="col__link">Условия использования</a>
           </div>
         </div>
 
         <div class="col col--payment-methods">
-          <h5 class="col__heading col__heading--payment-methods">Payment methods</h5>
+          <h5 class="col__heading col__heading--payment-methods">Способы оплаты</h5>
 
           <div class="col__content col__content--payment-methods">
             <img src="@/assets/img/payment-methods/mastercard.png" alt="Master Card" />
@@ -48,7 +47,7 @@
       </div>
       <hr class="divider" />
 
-      <p class="copyright py-6 text-center">Copyright &copy;2022 Даурен. Все права защинены</p>
+      <p class="copyright py-6 text-center">Copyright &copy;2023. Все права защинены</p>
     </div>
   </footer>
 </template>
