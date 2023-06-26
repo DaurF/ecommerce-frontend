@@ -12,7 +12,6 @@ const useCartStore = defineStore('CartStore', {
   actions: {
     setProducts(products: Product[]) {
       this.products = products.map(setImageCover)
-      console.log(this.products)
     },
     removeProductById(id: string) {
       const index = this.products.findIndex((p) => p._id === id)

@@ -1,20 +1,25 @@
 <template>
   <div class="menu">
     <SearchBar />
-    <div class="flex gap-2" v-if="isLoggedIn">
+    <div class="flex" v-if="isLoggedIn">
       <router-link to="/cart" class="menu__btn">
         <ShoppingCart />
       </router-link>
-      <router-link to="/profile" class="menu__btn">
+      <router-link to="/profile" class="menu__btn ml-2.5">
         <User />
       </router-link>
-      <button @click="onLogout">
+      <button @click="onLogout" class="ml-4">
         <Logout />
       </button>
     </div>
     <div class="flex gap-2" v-else>
-      <router-link to="/auth" class="menu__btn border border-black"> Войти </router-link>
-      <router-link to="/auth/signup" class="menu__btn border bg-blue-700 text-white">
+      <router-link to="/auth" class="menu__btn border border-gray-400 hover:bg-slate-100">
+        Войти
+      </router-link>
+      <router-link
+        to="/auth/signup"
+        class="menu__btn border bg-blue-700 text-white hover:bg-blue-600"
+      >
         Зарегистрироваться
       </router-link>
     </div>
@@ -46,12 +51,9 @@ function onLogout() {
 
   &__btn {
     font-size: 0.9rem;
-    padding: 0.3rem 0.6rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 100px;
-
-    &:hover {
-      @apply text-slate-400;
-    }
+    transition: all 0.2s;
   }
 }
 </style>

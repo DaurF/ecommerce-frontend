@@ -1,6 +1,6 @@
 <template>
-  <section class="section-brands">
-    <h3 class="heading-tertiary mb-20">Бренды</h3>
+  <main>
+    <h1 class="heading-tertiary mb-20">Бренды</h1>
     <div class="logos">
       <img src="@/assets/img/brand-logos/amd.png" alt="AMD logo" />
       <img src="@/assets/img/brand-logos/logitech.png" alt="Logitech logo" />
@@ -10,7 +10,7 @@
       <img src="@/assets/img/brand-logos/apple.png" alt="Apple logo" />
       <!--      <img src="@/assets/img/brand-logos/reebok.png" alt="Reebok logo"/>-->
     </div>
-  </section>
+  </main>
 </template>
 
 <style scoped lang="scss">
@@ -24,6 +24,7 @@
     height: 2.4rem;
     filter: brightness(0);
     opacity: 60%;
+    justify-self: center;
   }
 }
 </style>

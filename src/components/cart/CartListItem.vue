@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import useCartStore from '@/stores/cartStore'
 import { type Product } from '@/stores/catalogStore'
-import { computed, onBeforeMount } from 'vue'
+import { computed } from 'vue'
 import client from '@/services/httpClient'
 import ParkBuy from '@/components/icons/ParkBuy.vue'
 import TrashDelete from '@/components/icons/TrashDelete.vue'
@@ -37,8 +37,6 @@ import Button from 'primevue/button'
 const cartStore = useCartStore()
 
 const props = defineProps<{ product: Product }>()
-
-onBeforeMount(() => console.log(props.product))
 const name = computed(() => `${props.product.manufacturer} ${props.product.model}`)
 
 async function checkout() {

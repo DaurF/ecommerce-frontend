@@ -8,6 +8,8 @@ import Signup from '@/components/auth/Signup.vue'
 import Product from '@/pages/product/Product.vue'
 import Cart from '@/pages/Cart.vue'
 import Brands from '@/pages/Brands.vue'
+import NewProducts from '@/pages/NewProducts.vue'
+import Profile from '@/pages/Profile.vue'
 
 const routes = [
   {
@@ -59,6 +61,16 @@ const routes = [
     path: '/brands',
     name: 'brands',
     component: Brands
+  },
+  {
+    path: '/new-products',
+    name: 'new-products',
+    component: NewProducts
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
   }
 ]
 

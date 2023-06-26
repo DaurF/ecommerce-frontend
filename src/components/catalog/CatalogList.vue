@@ -38,10 +38,6 @@ import Card from 'primevue/card'
 const props = defineProps<{
   products: Product[]
 }>()
-
-onMounted(() => {
-  console.log(props.products)
-})
 </script>
 
 <style lang="scss" scoped>

@@ -142,8 +142,6 @@ async function onAddReview(text: string, rating: number) {
       review: reviewText
     })
 
-    console.log(response)
-
     reviewsStore.addReview(response.data.data.data)
   } catch (err) {
     console.error(err)

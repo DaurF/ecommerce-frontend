@@ -3,7 +3,7 @@
   <form class="flex flex-col gap-6 items-center" @submit.prevent="onSignup">
     <div class="flex flex-col gap-4">
       <span class="p-input-icon-left">
-        <i class="pi pi-inbox" />
+        <i class="pi pi-user" />
         <InputText v-model="form.name" placeholder="Введите ваше имя" />
       </span>
 
