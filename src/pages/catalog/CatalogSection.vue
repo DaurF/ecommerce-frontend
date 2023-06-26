@@ -10,11 +10,11 @@
 <script setup lang="ts">
 import CatalogFilters from '@/components/catalog/CatalogFilters.vue'
 import CatalogList from '@/components/catalog/CatalogList.vue'
-import { getAllProducts } from '@/services/catalog'
+import { getAllProducts } from '@/services'
 import { useCatalogStore } from '@/stores/catalogStore'
-import { computed } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 
-getAllProducts()
+onBeforeMount(async () => await getAllProducts())
 
 const catalogStore = useCatalogStore()
 const products = computed(() => catalogStore.allProducts)

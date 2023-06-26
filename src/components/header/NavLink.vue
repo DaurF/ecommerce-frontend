@@ -1,10 +1,16 @@
 <template>
   <li>
-    <a href="#" class="header__nav-link">
+    <router-link :to="link" class="header__nav-link">
       <slot />
-    </a>
+    </router-link>
   </li>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  link: object
+}>()
+</script>
 
 <style scoped lang="scss">
 .header__nav-link:hover {

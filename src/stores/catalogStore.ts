@@ -14,6 +14,10 @@ interface Product {
   createdAt: Date
 }
 
+const setImageCover = (product: Product) => {
+  return { ...product, imageCover: `http://127.0.0.1:8000/img/${product.imageCover}.jpg` }
+}
+
 const useCatalogStore = defineStore('CatalogStore', {
   state: () => ({
     products: [] as Product[],
@@ -29,10 +33,7 @@ const useCatalogStore = defineStore('CatalogStore', {
   },
   actions: {
     setProducts(products: Product[]) {
-      console.log(products)
-
-      products.forEach((p) => (p.imageCover = `http://127.0.0.1:8000/img/${p.imageCover}.jpg`))
-      this.products = products
+      this.products = products.map(setImageCover)
     },
     setFilters(filters: string[]) {
       this.filters = filters
@@ -45,10 +46,10 @@ const useCatalogStore = defineStore('CatalogStore', {
     },
     clearFilters() {
       this.filters = []
-      this.minPrice = 0;
-      this.maxPrice = Number.MAX_SAFE_INTEGER;
+      this.minPrice = 0
+      this.maxPrice = Number.MAX_SAFE_INTEGER
     }
   }
 })
 
-export { useCatalogStore, type Product }
+export { useCatalogStore, type Product, setImageCover }

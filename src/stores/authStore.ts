@@ -8,7 +8,8 @@ const useAuthStore = defineStore('user', {
     }
   }),
   getters: {
-    isLoggedIn: (state) => state.credentials.token && state.credentials.userRole
+    isLoggedIn: (state) => state.credentials.token && state.credentials.userRole,
+    allCredentials: (state) => state.credentials
   },
   actions: {
     setToken(token: string) {
@@ -30,4 +31,4 @@ const useAuthStore = defineStore('user', {
   }
 })
 
-export { useAuthStore }
+export default useAuthStore

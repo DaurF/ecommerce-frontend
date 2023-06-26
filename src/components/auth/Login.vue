@@ -38,7 +38,7 @@ import Button from 'primevue/button'
 import client from '@/services/httpClient'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/authStore'
+import useAuthStore from '@/stores/authStore'
 
 const authStore = useAuthStore()
 const router = useRouter()

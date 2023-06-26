@@ -49,7 +49,7 @@ import { reactive, ref, watch } from 'vue'
 import Checkbox from 'primevue/checkbox'
 import InputNumber from 'primevue/inputnumber'
 import { useCatalogStore } from '@/stores/catalogStore'
-import { getAllProducts } from '@/services/catalog'
+import { getAllProducts } from '@/services'
 
 const show = reactive({
   categories: true,
