@@ -26,7 +26,7 @@ import User from '@/components/icons/User.vue'
 import Logout from '@/components/icons/Logout.vue'
 import ShoppingCart from '@/components/icons/ShoppingCart.vue'
 import SearchBar from './Searchbar.vue'
-import { useAuthStore } from '@/stores/authStore'
+import useAuthStore from '@/stores/authStore'
 
 const authStore = useAuthStore()
 const isLoggedIn = authStore.isLoggedIn

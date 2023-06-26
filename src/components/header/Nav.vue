@@ -2,25 +2,23 @@
   <nav class="header__nav text-sm">
     <ul class="header__nav-links flex gap-6">
       <!-- TODO dropdown cmp -->
-      <li>
+      <!-- <li>
         <a
           href="#"
           class="header__nav-link header__nav-link--dropdown flex gap-1.5 items-center hover:"
         >
           <span>Магазин</span>
-          <ChevronDown />
         </a>
-      </li>
-      <NavLink>Желаемые</NavLink>
-      <NavLink>Новинки</NavLink>
-      <NavLink>Бренды</NavLink>
+      </li> -->
+      <NavLink :link="{ name: 'home' }">Магазин</NavLink>
+      <NavLink :link="{}">Новинки</NavLink>
+      <NavLink :link="{ name: 'brands' }">Бренды</NavLink>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
 import NavLink from './NavLink.vue'
-import ChevronDown from '@/components/icons/ChevronDown.vue'
 </script>
 
 <style scoped lang="scss">

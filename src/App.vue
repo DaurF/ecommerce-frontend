@@ -1,11 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container mx-auto xl:px-20">
+  <div class="container mx-auto 2xl:px-20">
     <TheHeader class="mb-8"/>
     <router-view/>
   </div>
-  <TheFooter/>
+  <TheFooter />
 </template>
 
 <script setup lang="ts">
